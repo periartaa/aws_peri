@@ -16,4 +16,4 @@ jobs:
         run: |
           aws s3 sync ./ s3://staticwebperi/ \
           --exclude "*" \
-          --include "index.html" \
+          --include "index.html"
