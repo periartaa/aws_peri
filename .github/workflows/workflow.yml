@@ -4,20 +4,17 @@ on:
   push:
     branches:
       - main
+      - staging
 
 jobs:
-  build-test-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code from repo
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: docker build -t my-static-site .
-
-      - name: Run tests in Docker
-        run: |
-          docker run --rm my-static-site test -f /usr/share/nginx/html/index.html
+      - name: (Optional) Run simple test
+        run: test -f website/index.html
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -28,4 +25,8 @@ jobs:
 
       - name: Upload static site to S3
         run: |
-          aws s3 sync website/ s3://staticwebperi/ --delete
+          if [ "${GITHUB_REF##*/}" = "main" ]; then
+            aws s3 sync website/ s3://staticwebperi/ --delete
+          else
+            aws s3 sync website/ s3://staticwebperi-staging/ --delete
+          fi
