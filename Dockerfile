@@ -4,8 +4,8 @@ FROM nginx:alpine
 # Salin file website ke direktori default NGINX
 COPY website/ /usr/share/nginx/html/
 
-# (Opsional) Salin konfigurasi NGINX kustom jika diperlukan
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Salin konfigurasi NGINX kustom (reverse proxy & static)
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
