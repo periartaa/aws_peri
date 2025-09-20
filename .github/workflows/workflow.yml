@@ -1,15 +1,23 @@
 name: Deploy HTML to S3
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  deploy:
+  build-test-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code from repo
         uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t my-static-site .
+
+      - name: Run tests in Docker
+        run: |
+          docker run --rm my-static-site test -f /usr/share/nginx/html/index.html
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
