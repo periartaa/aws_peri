@@ -4,67 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Web Sederhana - Kucing</title>
-  <style>
-    :root{
-      --bg:#f7f7f9;
-      --card:#ffffff;
-      --accent:#556b2f;
-      --muted:#6b7280;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(180deg,var(--bg), #eef2f6);
-      color:#111827;
-      display:flex;
-      min-height:100vh;
-      align-items:center;
-      justify-content:center;
-      padding:2rem;
-    }
-    .card{
-      width:100%;
-      max-width:880px;
-      background:var(--card);
-      border-radius:14px;
-      box-shadow:0 8px 30px rgba(17,24,39,0.08);
-      overflow:hidden;
-      display:grid;
-      grid-template-columns:1fr 340px;
-    }
-    @media (max-width:760px){
-      .card{grid-template-columns:1fr;}
-    }
-    .hero{
-      padding:28px;
-    }
-    h1{
-      margin:0 0 8px 0;
-      font-size:28px;
-      letter-spacing:-0.3px;
-    }
-    p.lead{margin:0 0 18px 0; color:var(--muted); line-height:1.5}
-    .meta{display:flex; gap:12px; align-items:center; font-size:14px; color:var(--muted)}
-    .tags{background:#eef6e8; color:var(--accent); padding:6px 10px; border-radius:999px; font-weight:600}
-
-    figure{
-      margin:0; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fafafa,#f3f6f8);
-    }
-    img{
-      display:block;
-      width:100%;
-      height:auto;
-      max-height:100%;
-      object-fit:cover;
-    }
-    figcaption{
-      padding:16px; font-size:14px; color:var(--muted); text-align:center;
-      border-top:1px solid #edf2f7; background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent);
-    }
-    .description{margin-top:14px; color:#374151}
-    footer{padding:12px 28px; font-size:13px; color:var(--muted);}
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <article class="card" aria-labelledby="judul">
